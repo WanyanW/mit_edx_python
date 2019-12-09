@@ -1,0 +1,39 @@
+def getGuessedWord(secretWord, lettersGuessed):
+    '''
+    secretWord: string, the word the user is guessing
+    lettersGuessed: list, what letters have been guessed so far
+    returns: string, comprised of letters and underscores that represents
+      what letters in secretWord have been guessed so far.
+    '''
+    length = len(secretWord)
+    output = ['_'] * length
+    for i in lettersGuessed:
+        for index, element in enumerate(secretWord):
+            if element == i:
+                output[index] = i
+    return ' '.join(output)
+
+print(getGuessedWord('appleapledsbgdslkereahsflkjgeakrhea;lkgdah', ['a', 'p']))
+
+
+
+
+def getGuessedWord(secretWord, lettersGuessed):
+    '''
+    secretWord: string, the word the user is guessing
+    lettersGuessed: list, what letters have been guessed so far
+    returns: string, comprised of letters and underscores that represents
+      what letters in secretWord have been guessed so far.
+    '''
+    length = len(secretWord)
+    output = ['_'] * length
+    dictionary = dict(enumerate(secretWord))
+    for i in lettersGuessed:
+        for k in dictionary.keys():
+            if dictionary[k] == i:
+                output[k] = i
+    return ' '.join(output)
+
+print(getGuessedWord('appleapledsbgdslkereahsflkjgeakrhea;lkgdah', ['a', 'p']))
+
+
